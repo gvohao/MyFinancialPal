@@ -1,17 +1,18 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navigation from "./components/general/Navigation";
 import Home from "./components/general/Home";
 import RetirementPlanner from "./components/calculators/RetirementPlanner";
 import AuthForm from "./components/auth/AuthForm";
 import axios from "axios";
 import {Container} from "react-bootstrap";
+import Portfolio from "./components/general/Portfolio"
 
 function App() {
     const [auth, setAuth] = useState({})
     const [user, setUser] = useState({})
-    const [admin, setAdmin] = useState({})
+    // const [admin, setAdmin] = useState({})
 
     // useEffect(() =>{
     //     async function setAdminStatus () {
@@ -33,7 +34,7 @@ function App() {
     useEffect(() => {
         async function setUserStatus() {
             try {
-                let {data} = await axios.get("auth/user", {
+                let {data} = await axios.get("/auth/user", {
                     headers: {
                         authorization: `Bearer ${localStorage.token}`
                     }
@@ -59,7 +60,11 @@ function App() {
                     </Route>
 
                     <Route path='/golden' exact>
-                        <RetirementPlanner/>
+                        <RetirementPlanner user={user}/>
+                    </Route>
+
+                    <Route path='/portfolio' exact>
+                        <Portfolio user={user} />
                     </Route>
 
                     <Route path='/auth' exact>

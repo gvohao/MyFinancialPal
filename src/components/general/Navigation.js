@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Nav, Navbar, Form, FormControl, NavDropdown, Button, CardImg, Row, Container, Col} from "react-bootstrap";
+import {Navbar, NavDropdown, Container, Col} from "react-bootstrap";
 import {NavLink, useHistory} from "react-router-dom";
 
 function Navigation({id, setAuth, user, setUser}){
@@ -9,17 +9,14 @@ function Navigation({id, setAuth, user, setUser}){
     const clickHandler = (e) => {
         history.push(`/chart/${search}`)
     }
-
     const textHandler = (e) => {
         setSearch(e.target.value)
     }
-
     const keyPressHandler = (e) => {
         if (e.key === 'Enter') {
             history.push(`/chart/${search}`)
         }
     }
-    // console.log(search)
 
     function handleSubmit(e) {
         if (e.target.value !== {id})
