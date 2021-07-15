@@ -7,7 +7,8 @@ import RetirementPlanner from "./components/calculators/RetirementPlanner";
 import AuthForm from "./components/auth/AuthForm";
 import axios from "axios";
 import {Container} from "react-bootstrap";
-import Portfolio from "./components/general/Portfolio"
+import Port from "./components/general/Port";
+import Portfolio from "./components/general/Portfolio";
 
 function App() {
     const [auth, setAuth] = useState({})
@@ -18,7 +19,7 @@ function App() {
     //     async function setAdminStatus () {
     //         try{
     //             let axios;
-    //             let {data} = await axios.get("/auth/user", {
+    //             let {data} = await axios.get("/api/auth/user", {
     //                 headers: {
     //                     authorization: `Bearer ${localStorage.token}`
     //                 }
@@ -30,18 +31,19 @@ function App() {
     //     }
     //     setAdminStatus()
     // },[]);
-
     useEffect(() => {
         async function setUserStatus() {
             try {
-                let {data} = await axios.get("/auth/user", {
+                console.log("line 37")
+                let {data} = await axios.get("/api/auth/user", {
                     headers: {
                         authorization: `Bearer ${localStorage.token}`
                     }
                 })
-                setAuth(true)
-                setUser(data.user)
+                await setAuth(true)//await
+                await setUser(data.user)//await
             } catch (e) {
+                console.log("line 47")
                 setAuth(false)
                 setUser(null)
                 localStorage.removeItem("token")
@@ -52,7 +54,7 @@ function App() {
 
   return (
       <BrowserRouter>
-          <Container>
+          <Container className="">
               <Navigation setAuth={setAuth} setUser={setUser} user={user}/>
                 <Switch>
                     <Route path="/" exact>
@@ -64,7 +66,8 @@ function App() {
                     </Route>
 
                     <Route path='/portfolio' exact>
-                        <Portfolio user={user} />
+                        {/*<Portfolio user={user} auth={auth} />*/}
+                        <Port user={user}/>
                     </Route>
 
                     <Route path='/auth' exact>

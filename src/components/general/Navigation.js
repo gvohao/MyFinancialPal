@@ -33,36 +33,31 @@ function Navigation({id, setAuth, user, setUser}){
 
     return (
         <Container className="">
-                <Navbar bg="light" expand="lg">
-                    <Col className="col-2 ">
-                    <Navbar.Brand href="/">INSERT LOGO HERE</Navbar.Brand>
-                    </Col>
+                <Navbar expand="lg" className="">
+                    <Navbar.Brand className="mx-4" href="/">MyFinancialPal</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" className="">
-                    <Col className="col-9 ">
-                    <NavDropdown title="Calculators" id="responsive-nav-dropdown">
+                        {/*<div className="col-md-9">*/}
+                    <NavDropdown className="=col-md-9" title="Calculators" id="responsive-nav-dropdown">
                         <NavDropdown.Item href="/golden">Retirement Planning</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Education Planning</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Legacy Planning</NavDropdown.Item>
+                        <NavDropdown.Item href="/">Education Planning</NavDropdown.Item>
+                        <NavDropdown.Item href="/">Legacy Planning</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4"></NavDropdown.Item>
+                        <NavDropdown.Item href="/"></NavDropdown.Item>
                     </NavDropdown>
-                    </Col>
-                        { user ? (
-                            <>
-                                <Navbar.Text>sexy motherfucker:</Navbar.Text>
+                        {/*</div>*/}
+                            { user ? (
+                            <div className="col-lg-10 d-flex align-items-center justify-content-end">
+                                <Navbar.Text>sexy motherf#####:</Navbar.Text>
                                 <NavDropdown title={user.displayName} id="basic-nav-dropdown" className='navbar-text '>
-                                    <NavDropdown.Item href={`/profile/${user._id}`}>Profile</NavDropdown.Item>
+                                    <NavLink to="/portfolio" class="dropdown-item">Profile</NavLink>
+                                    {/*<NavDropdown.Item onClick={linkToPortfolio}>Profile</NavDropdown.Item>*/}
                                     <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
                                 </NavDropdown>
-                                <div className="spriteDetailsCtn d-flex">
-                                    <div className="spriteCtn">
-                                        {/*<CardImg src={user.displayImage?.itemImage} />*/}
-                                    </div>
-                                </div>
-                            </>
+                                    {/*<div className="px-2 avatar "> {user.displayName.slice(0,1).toUpperCase()} </div>*/}
+                            </div>
                         ) : (
-                            <NavLink to={"/auth"} className='navbar-text'>Register / Login</NavLink>
+                            <NavLink to="/auth" className='navbar-text col-10 d-flex justify-content-end'>Register / Login</NavLink>
                         )}
                     </Navbar.Collapse>
                 </Navbar>
