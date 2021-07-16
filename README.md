@@ -2,4 +2,4 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<img src="https://imgur.com/GUZM4rk">
+<img src="https://imgur.com/GUZM4rk"/>
