@@ -1,51 +1,42 @@
 import React from 'react';
-import {CanvasJSChart} from "canvasjs-react-charts";
-import {Line} from "react-chartjs-2"
-import * as singstat from "../calculators/singstatjson.json";
+import {Line} from "react-chartjs-2";
+import * as moneysupply from "./M3supply.json";
 
+function MoneySupplySt(props) {
 
-function Inflation(props) {
-    let infData = singstat.default.Level1
-    let infDateArr = []
-    let infValueArr = []
-
-    //push date
-    for (let i = 0; i < infData.length ; i++){
-        if(infData[i].level_1 === "All Items") {
-            infDateArr.push(infData[i].year)
-            // console.log(infData[i].year)
+    let moneySupply = moneysupply.default
+    console.log(moneySupply)
+    let moneyData = moneysupply.default.Level2.slice(341)
+    console.log(moneyData)
+    let moneyArr = []
+    let moneyDateArr = []
+    for(let i = 0; i < moneyData.length; i++) {
+        if(moneyData[i].level_2 === "M2"){
+            moneyArr.push(moneyData[i].month)
+            moneyDateArr.push(moneyData[i].value)
         }
+        // if(moneyData[i].month == "1991") {
+        //     console.log("got the moneth")
+        // }
     }
-    //push value
-    for (let i = 0; i < infData.length; i++){
-        if(infData[i].level_1 === "All Items") {
-            infValueArr.push(infData[i].value)
-        }
-    }
-
+    console.log(moneyArr)
+    console.log(moneyDateArr)
+    // console.log(moneyData)
 
     const state = {
-            labels: infDateArr,
+        labels: moneyArr,
         datasets: [
             {
-                label: 'Consumer Price Index (CPI)',
+                label: 'M2 Money Supply (Singapore)',
                 fill: false,
-                lineTension: 0.5,
-                backgroundColor: 'rgba(129,244,225,1.00)',
+                lineTension: 0.1,
+                backgroundColor: 'rgb(255,114,159)',
                 borderColor: 'rgba(0,0,0,1)',
                 borderWidth: 0.7,
-                data: infValueArr,
-                hoverRadius: 7,
+                data: moneyDateArr,
+                hoverRadius: 5,
+
             },
-            // {
-            //     label: 'abc',
-            //     fill: false,
-            //     lineTension: 0.5,
-            //     backgroundColor: 'rgba(75,192,192,1)',
-            //     borderColor: 'rgba(0,0,0,1)',
-            //     borderWidth: 1,
-            //     data: [null,null,4,5,6,7,8,9,null]
-            // }
         ]
     }
     return (
@@ -78,7 +69,7 @@ function Inflation(props) {
                     resizeDelay: 10,
                     elements:{
                         point:{
-                            radius:2.2
+                            radius:2
                         }
                     }
                 }}
@@ -88,4 +79,4 @@ function Inflation(props) {
     );
 }
 
-export default Inflation;
+export default MoneySupplySt;

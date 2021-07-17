@@ -50,17 +50,17 @@ function Register({auth, setAuth, user}) {
     }
 
     return (
-        <Row className="justify-content-center">
-            <Col className="col-12 text-center"><h3>{isSignup ? "Register" : "Log In"}</h3></Col>
-            <Col className="col-12 col-md-8">
+        <Row className="justify-content-center champange">
+            <Col className="col-12 text-center roboto"><h3>{isSignup ? "Register" : "Log In"}</h3></Col>
+            <Col className="d-flex justify-content-center col-md-12l-12 roboto">
                 <Row>
                     <Col className="col-12 signupForm">
                         <Form onSubmit={isSignup ? registerSubmit : loginSubmit}>
                             { isSignup && (
-                                <Row className="align-items-center">
-                                    <Col className="col-12 col-md-3 text-right">
+                                <Row className="align-items-center mt-3">
+                                    <Col className="col-12 col-md-6 text-right">
                                         <label>Display Name</label></Col>
-                                    <Col className="col-12 col-md-9">
+                                    <Col className="col-12 col-md-6">
                                         {/*<FormControl className="col-6 mx-auto" type="text" placeholder="First Name" name="firstName" onChange={handleChange} ></FormControl>*/}
                                         {/*<FormControl className="col-6 mx-auto" type="text" placeholder="Last Name" name="lastName" onChange={handleChange} ></FormControl>*/}
                                         <input type="text" placeholder="Display Name" name="displayName" onChange={handleChange} required />
@@ -68,25 +68,25 @@ function Register({auth, setAuth, user}) {
                                 </Row>
                             )}
                             {/*<FormControl type="email" placeholder="Display Name" name="displayName" onChange={handleChange} />*/}
-                            <Row className="align-items-center">
-                                <Col className="col-12 col-md-3 text-right">
+                            <Row className="align-items-center mt-1">
+                                <Col className="col-12 col-md-6 text-right">
                                     <label>Email</label></Col>
-                                <Col className="col-12 col-md-9">
+                                <Col className="col-12 col-md-6">
                                     <input type="email" placeholder="Email Address" name="email" onChange={handleChange} required />
                                 </Col>
                             </Row>
-                            <Row className="align-items-center">
-                                <Col className="col-12 col-md-3 text-right">
+                            <Row className="align-items-center mt-1">
+                                <Col className="col-12 col-md-6 text-right">
                                     <label>Password</label></Col>
-                                <Col className="col-12 col-md-9">
+                                <Col className="col-12 col-md-6">
                                     <input placeholder="Password" name="password" onChange={handleChange} type='password' required  />
                                 </Col>
                             </Row>
                             {isSignup &&
-                            <Row className="align-items-center">
-                                <Col className="col-12 col-md-3 text-right">
+                            <Row className="align-items-center mt-1 mb-3">
+                                <Col className="col-12 col-md-6 text-right">
                                     <label>Confirm Password</label></Col>
-                                <Col className="col-12 col-md-9">
+                                <Col className="col-12 col-md-6">
                                     <input className='confirmPassword' placeholder='Confirm Password' name="confirmPassword" onChange={handleChange} type="password" required />
                                 </Col>
                             </Row>
@@ -99,7 +99,7 @@ function Register({auth, setAuth, user}) {
                                 </Col>
                             </Row>
                             <Row className="text-center">
-                                <Col className="col-12">
+                                <Col className="col-12 ">
                                     <a onClick={switchMode} >
                                         {isSignup ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
                                     </a>

@@ -6,14 +6,42 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: "Roboto", sans-serif;
+  background-color: #F5DBCB;
+}
+.roboto{
+  font-family: "Roboto", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Serif", serif;
-}
+/*h1, h2, h3, h4, h5, h6 {*/
+/*  font-family: "Roboto Light", sans-serif;*/
+/*}*/
 
+.color-nav{
+  color: rgba(75,192,192,1)
+}
+.lavender{
+  background-color: #4C5B61;
+  color:white
+}
+.banner{
+  min-height: 35vh;
+}
 #homepage{
   background-image: url("components/img/boxing.jpg");
+}
+#champange{
+  background-color: #F5DBCB;
+  color: #F5DBCB;
+}
+#homequote{
+  margin-top: 10px;
+  animation: fadeIn 4s;
+  color: #F5DBCB;
+  padding: 20px 90px;
+}
+@keyframes fadeIn {
+  0%{opacity:0;}
+  100%{opacity: 1;}
 }
 #background{
   background-color: #00d5d6;
@@ -21,20 +49,29 @@ h1, h2, h3, h4, h5, h6 {
   width: 100vw;
   color: whitesmoke;
 }
+#homepageTwo{
+  background-color: #F5DBCB;
+}
 img{
   width: 1000px;
   opacity: 0.5;
 }
 #title{
-  font-size: 30px;
-
+  margin-top: 35px;
+  margin-bottom: 15px;
+  font-family: "Roboto", sans-serif;
+}
+#subtitle{
+  font-weight: lighter;
+  font-style: italic;
+  font-family: "Roboto Light", sans-serif;
 }
 #inflation{
 
 }
 .overlay{
   position: absolute;
-  top:400px;
+  top:800px;
   left: 670px;
   font-weight: lighter;
   font-size: 12px;

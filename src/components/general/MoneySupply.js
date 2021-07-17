@@ -7,7 +7,7 @@ function MoneySupply(props) {
 
     let moneySupply = moneysupply.default
     console.log(moneySupply)
-    let moneyData = moneysupply.default.Level2.slice(125)
+    let moneyData = moneysupply.default.Level2.slice(200)
     console.log(moneyData)
     let moneyArr = []
     let moneyDateArr = []
@@ -25,16 +25,18 @@ function MoneySupply(props) {
     // console.log(moneyData)
 
     const state = {
-        labels: moneyDateArr,
+        labels: moneyArr,
         datasets: [
             {
                 label: 'M2 Money Supply (Singapore)',
                 fill: false,
-                lineTension: 0.5,
-                backgroundColor: 'rgba(75,192,192,1)',
+                lineTension: 0.1,
+                backgroundColor: 'rgba(0,204,255,1.00)',
                 borderColor: 'rgba(0,0,0,1)',
-                borderWidth: 0.7,
-                data: moneyArr
+                borderWidth: 0.1,
+                data: moneyDateArr,
+                hoverRadius: 7,
+
             },
         ]
     }
@@ -64,6 +66,13 @@ function MoneySupply(props) {
                             snapToDataPoint: true
                         },
                     },
+                    responsive: true,
+                    resizeDelay: 10,
+                    elements:{
+                        point:{
+                            radius:0.5
+                        }
+                    }
                 }}
 
             />

@@ -120,14 +120,29 @@ function Port({user}) {
         <Row>
             <h3 className="text-primary col-lg-12 ">According to your plans...</h3>
             <Col className="card col-6 " >
-                <div className="card-body">
+                <div className="card-body champagne">
                     <h5 className="card-title text-center">Retirement</h5>
-                    <p className="card-text">Retirement expense: ${retirePlan.retireExpense}/ year</p>
-                    <p className="card-text">Funds allocated to retirement as of {entryYear}/{entryMonth}: ${retirePlan.currentFund}</p>
-                    <p className="card-text">Retirement age: {retirePlan.retireAge}</p>
-                    <p className="card-text">Inflation adjusted funds: ${infAdjRetireFunds}</p>
-                    <p className="card-text">Inflation adjusted savings: ${infAdjAnnualSavings}/ year</p>
-                    <p className="card-text">assumptions: {retirePlan.investReturn}% investment returns @ {annualInflation}% p.a.
+                    <Row>
+                        <p className="card-text col-sm-7 text-end">Retirement expense:</p>
+                        <p className="card-text col">${retirePlan.retireExpense}/year</p>
+                    </Row>
+                    <Row>
+                        <p className="card-text col-sm-7 text-end">Funds allocated as of ({entryYear}/{entryMonth}):</p>
+                        <p className="card-text col">${retirePlan.currentFund}</p>
+                    </Row>
+                    <Row>
+                        <p className="card-text col-sm-7 text-end">Retirement age:</p>
+                        <p className="card-text col">Retirement age: {retirePlan.retireAge}</p>
+                    </Row>
+                    <Row>
+                        <p className="card-text col-sm-7 text-end">Inflation adjusted funds:</p>
+                        <p className="card-text col">${infAdjRetireFunds}</p>
+                    </Row>
+                    <Row>
+                        <p className="card-text col-sm-7 text-end">Inflation adjusted savings (annual):</p>
+                        <p className="card-text col-5">${infAdjAnnualSavings}</p>
+                    </Row>
+                    <p className="card-text mt-3">Assumptions: {retirePlan.investReturn}% investment returns @ {annualInflation}% p.a.
                                                 real returns of {discountRate}%</p>
                     <div className="row">
                     <Button className="btn btn-success w-50 mt-2" onClick={showChangeGoal}>Edit</Button>

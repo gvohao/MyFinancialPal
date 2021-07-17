@@ -80,7 +80,7 @@ function RetirementPlanner({user}) {
         //vanilla savings
         retireFunds = retireExpense*drawdownPeriod-currentFund
         annualSavings = (retireExpense*drawdownPeriod-currentFund)/accumulationPeriod
-
+        cumulativeInflation.toFixed(2) //does not work yet
         await setResults(prevState => ({...prevState,
             retireFunds: retireFunds,
             annualSavings: annualSavings,
@@ -90,7 +90,8 @@ function RetirementPlanner({user}) {
             infAdjAnnualSavings: infAdjAnnualSavings,
         }))
     }
-    let inflationPercent = annualInflation*100
+    let inflationPercent = (annualInflation*100).toFixed(2)
+
     console.log(`investment return ${investReturn}`)
     console.log(`growth rate ${growthRate}`)
     console.log(`annual inflation ${annualInflation}`)
@@ -137,13 +138,9 @@ function RetirementPlanner({user}) {
             console.log(e)
         }
     }
-    //
-    // useEffect(()=>{
-    //     getRetirePlan()
-    // },[])
 
     return (
-        <Row className="retirementplanning  justify-content-center">
+        <Row className="retirementplanning  justify-content-center champange ">
             <Col className="col-12 text-center mt-3 mb-3"><h5 >Retirement Planner</h5></Col>
             <Col className="col-md-7 mt-3">
                     <Row>
@@ -241,7 +238,7 @@ function RetirementPlanner({user}) {
             }
             { showResult ?
                 <>
-            <Col className="col-12 mt-5 fw-bold">Report:</Col>
+            <Col className="col-12 mt-5 fw-bold ">Report:</Col>
             <Col className="col-12 ">You have {accumulationPeriod} years to accumulate your retirement funds.
                 Over the past {accumulationPeriod} years from {startInflationYear} to {currentYearInflation},
                 cumulative inflation was {cumulativeInflation}% with average annual inflation of {inflationPercent}%.

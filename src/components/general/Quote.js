@@ -22,7 +22,7 @@ function Quote(props) {
         getSexy()
     },[])
     return (
-        <div className="overlay" onClick={getSexy}>{sexyQuote}</div>
+        <div className="overlay" id="homequote" onClick={getSexy}>{sexyQuote}</div>
     );
 }
 

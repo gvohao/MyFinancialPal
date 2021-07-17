@@ -33,19 +33,17 @@ function Navigation({id, setAuth, user, setUser}){
 
     return (
         <Container className="">
-                <Navbar expand="lg" className="">
-                    <Navbar.Brand className="mx-4" href="/">MyFinancialPal</Navbar.Brand>
+                <Navbar expand="lg" id="navigation" variant="light" className="color-nav">
+                    <Navbar.Brand className="mx-4 "  href="/">MyFinancialPal</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" className="">
-                        {/*<div className="col-md-9">*/}
-                    <NavDropdown className="=col-md-9" title="Calculators" id="responsive-nav-dropdown">
+                    <NavDropdown className="=col-md-9 " title="Calculators" id="responsive-nav-dropdown">
                         <NavDropdown.Item href="/golden">Retirement Planning</NavDropdown.Item>
                         <NavDropdown.Item href="/">Education Planning</NavDropdown.Item>
                         <NavDropdown.Item href="/">Legacy Planning</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="/"></NavDropdown.Item>
                     </NavDropdown>
-                        {/*</div>*/}
                             { user ? (
                             <div className="col-lg-10 d-flex align-items-center justify-content-end">
                                 <Navbar.Text>sexy motherf#####:</Navbar.Text>
