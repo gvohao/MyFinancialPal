@@ -65,14 +65,11 @@ function RetirementPlanner({user}) {
     const [results, setResults] = useState({})
 
     let growthRate = Math.abs(investReturn/100) //growth rate in decimals
+
     async function getResults(e){
         setShowResult(true)
         setResults({})
-        console.log(`investment return ${investReturn}`)
-        console.log(`growth rate ${growthRate}`)
-        console.log(`annual inflation ${annualInflation}`)
         let discountRate = (growthRate - annualInflation)  //R real returns in decimals
-        console.log(`discount rate ${discountRate}`)
         let drawdownPeriod = lifeExpectancy - retireAge //N
 
         let retireFunds = 0
@@ -92,11 +89,7 @@ function RetirementPlanner({user}) {
     }
     let inflationPercent = (annualInflation*100).toFixed(2)
 
-    console.log(`investment return ${investReturn}`)
-    console.log(`growth rate ${growthRate}`)
-    console.log(`annual inflation ${annualInflation}`)
     let discountRate = (growthRate - annualInflation)  //R real returns
-    console.log(`discount rate ${discountRate}`)
     let drawdownPeriod = lifeExpectancy - retireAge //N
 
     //vanilla savings

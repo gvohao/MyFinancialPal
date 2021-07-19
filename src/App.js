@@ -9,6 +9,7 @@ import axios from "axios";
 import {Container} from "react-bootstrap";
 import Port from "./components/general/Port";
 import Portfolio from "./components/general/Portfolio";
+import RetirePlan from "./components/calculators/RetirePlan";
 
 function App() {
     const [auth, setAuth] = useState({})
@@ -61,6 +62,9 @@ function App() {
                         <Home />
                     </Route>
 
+                    <Route path='/retire' exact>
+                        <RetirePlan/>
+                    </Route>
                     <Route path='/golden' exact>
                         <RetirementPlanner user={user}/>
                     </Route>

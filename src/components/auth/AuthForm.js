@@ -3,7 +3,7 @@ import {Form, Row, Col, Button} from "react-bootstrap";
 import axios from "axios";
 import { useHistory } from 'react-router-dom'
 
-const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: ''} //for sign up field
+
 
 function Register({auth, setAuth, user}) {
     //toggle between registration and login
@@ -12,8 +12,13 @@ function Register({auth, setAuth, user}) {
         setIsSignup((prevIsSignup) => !prevIsSignup)
     }
     //handles input fields
+    const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: ''} //for sign up field
     const [formData, setFormData] = useState(initialState)
     const history = useHistory()
+
+    const handleChange = (e) => {
+        setFormData({...formData, [e.target.name]: e.target.value})
+    }
 
     const registerSubmit = async(e) => {
         e.preventDefault(); //prevent refresh on form submit
@@ -45,9 +50,6 @@ function Register({auth, setAuth, user}) {
         }
     }
 
-    const handleChange = (e) => {
-        setFormData({...formData, [e.target.name]: e.target.value})
-    }
 
     return (
         <Row className="justify-content-center champange">
