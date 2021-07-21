@@ -17,6 +17,7 @@ Based upon the concept of Time Value of Money (TVM), retirement expenses are cal
 Retirement Savings was also based on annuity due formula, assuming users would like to start taking action TODAY but ordinaty annuity calculations could be used in the future to make more practical sense since this is made to be a forward looking financial planning tool.
 
 Note that existing retirement savings were also projected towards retirement age at past inflation rates in attempt to devise a more accurate financial plan for users moving forward. 
+
 <img width="662" alt="retireResults" src="https://media.git.generalassemb.ly/user/35165/files/0cb40980-ea79-11eb-827b-3ee60f9d1f6b">
 
 Users are able to save their financial plans to track their progress and for future references. 
