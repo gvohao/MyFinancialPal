@@ -8,14 +8,70 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: #F5DBCB;
 }
+
+.titleStyle{
+  font-family: "Roboto Light";
+  font-style: italic;
+  font-size: 45px;
+  margin-bottom: 50px;
+  border-bottom: 1px grey solid;
+}
 .roboto{
   font-family: "Roboto", sans-serif;
 }
 
-/*h1, h2, h3, h4, h5, h6 {*/
-/*  font-family: "Roboto Light", sans-serif;*/
-/*}*/
+.robotoLight{
+  font-family: "Roboto Light";
+}
+.inputDesc{
+  font-family: "Roboto";
+  font-weight: lighter;
+  font-size: 16px;
+}
+.inputText{
+  font-family: "Roboto Thin";
+  font-size: 16px;
+  font-style: italic;
+}
+.resultHeader{
+  font-family: "Roboto Light";
+  font-size: 24px;
 
+}
+.resultSubheader{
+  font-family: "Roboto Light";
+  font-size: 18px;
+}
+.result{
+  font-family: roboto;
+  font-size: 18px;
+  background-color: white;
+  border: darkgrey 1px solid;
+}
+.headerSummary{
+  font-size: 24px;
+  font-style: italic;
+  margin-left: 42px;
+  margin-bottom: 0px;
+}
+.textArea{
+  font-size: 18px;
+  color: #4d4d4d;
+  background-color: #fff1cc;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-radius: 5px;
+  width: 200px;
+}
+.buttonColor{
+  color: green;
+}
+.disclaimer{
+  font-size: 13px;
+  margin-top: 0;
+  color: #4a4a4a;
+  font-family: "Roboto Thin", sans-serif;
+}
 .color-nav{
   color: rgba(75,192,192,1)
 }
@@ -26,9 +82,7 @@ body {
 .banner{
   min-height: 35vh;
 }
-#homepage{
-  background-image: url("components/img/boxing.jpg");
-}
+
 #champange{
   background-color: #F5DBCB;
   color: #F5DBCB;
@@ -38,6 +92,9 @@ body {
   animation: fadeIn 4s;
   color: #F5DBCB;
   padding: 20px 90px;
+  font-family: "Roboto Light";
+  font-size: 24px;
+  font-style: italic;
 }
 @keyframes fadeIn {
   0%{opacity:0;}
@@ -58,17 +115,18 @@ img{
 }
 #title{
   margin-top: 35px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   font-family: "Roboto", sans-serif;
+  font-size: 32px;
 }
 #subtitle{
   font-weight: lighter;
   font-style: italic;
+  font-weight: lighter;
   font-family: "Roboto Light", sans-serif;
+  font-size: 24px;
 }
-#inflation{
 
-}
 .overlay{
   position: absolute;
   top:800px;

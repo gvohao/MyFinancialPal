@@ -63,7 +63,7 @@ function App() {
                     </Route>
 
                     <Route path='/retire' exact>
-                        <RetirePlan/>
+                        <RetirePlan user={user}/>
                     </Route>
                     <Route path='/golden' exact>
                         <RetirementPlanner user={user}/>

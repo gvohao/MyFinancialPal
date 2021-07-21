@@ -32,15 +32,14 @@ function Home() {
     },[])
 
     return (
-        <Container className="homepage min-vh-100 ">
-            {/*<img className="img" src={boxing} alt="boxing"/>*/}
+        <Container className="min-vh-100 ">
             <Row className="">
                 <Col className="col-lg-12 text-center lavender banner">
                     <h3 id="title">
                         MyFinancialPal
                     </h3>
                     <h5 id="subtitle">
-                        Money management made manageable.
+                        Money matters made manageable.
                     </h5>
                     <h5 id="homequote" className="col-lg-12 mt-5 d-flex justify-content-center" onClick={getSexy}>
                         {sexyQuote}
@@ -55,7 +54,7 @@ function Home() {
                     <MoneySupplySt/>
                 </Col>
                 <Col className="col-lg-12 vh-100 homepageTwo">
-                    <Quote/>
+
 
                 </Col>
             </Row>

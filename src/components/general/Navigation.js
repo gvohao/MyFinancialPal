@@ -38,7 +38,7 @@ function Navigation({id, setAuth, user, setUser}){
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" className="">
                     <NavDropdown className="=col-md-9 " title="Calculators" id="responsive-nav-dropdown">
-                        <NavDropdown.Item href="/golden">Retirement Planning</NavDropdown.Item>
+                        <NavDropdown.Item href="/retire">Retirement Planning</NavDropdown.Item>
                         <NavDropdown.Item href="/">Education Planning</NavDropdown.Item>
                         <NavDropdown.Item href="/">Legacy Planning</NavDropdown.Item>
                         <NavDropdown.Divider />
@@ -46,7 +46,7 @@ function Navigation({id, setAuth, user, setUser}){
                     </NavDropdown>
                             { user ? (
                             <div className="col-lg-10 d-flex align-items-center justify-content-end">
-                                <Navbar.Text>sexy motherf#####:</Navbar.Text>
+                                <Navbar.Text>Logged in:</Navbar.Text>
                                 <NavDropdown title={user.displayName} id="basic-nav-dropdown" className='navbar-text '>
                                     <NavLink to="/portfolio" class="dropdown-item">Profile</NavLink>
                                     {/*<NavDropdown.Item onClick={linkToPortfolio}>Profile</NavDropdown.Item>*/}
