@@ -20,5 +20,5 @@ Note that existing retirement savings were also projected towards retirement age
 
 <img width="662" alt="retireResults" src="https://media.git.generalassemb.ly/user/35165/files/0cb40980-ea79-11eb-827b-3ee60f9d1f6b">
 
-Users are able to save their financial plans to track their progress and for future references. 
+Registered and logged in users are able to save their financial plans to track their progress and for future references. 
 <img width="661" alt="retireResultsLoggedIn" src="https://media.git.generalassemb.ly/user/35165/files/0e7dcd00-ea79-11eb-9f20-335c655681b0">
