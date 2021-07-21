@@ -3,6 +3,9 @@
 A project influenced by my previous role as a wealth planning professional with DBS Bank, I wish to automate my pitch through the creation of this app.
 
 In the landing page, users are greeted by quotes by respectable figures in the financial world in attempt to spark inspiration or motivation of users to take financial decisions into their own hands.
+
+The interactive historical charts of Consumer Price Index (CPI), a measure of inflation as well as short term and long term M2 Money Supply charts, measure of liquidity are also accessible on the landing page for users' reference.
+
 <img width="650" alt="Home" src="https://media.git.generalassemb.ly/user/35165/files/3f5d0280-ea77-11eb-80ad-b6a42b2e2b41">
 
 # Retirement Planner
