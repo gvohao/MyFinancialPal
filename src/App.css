@@ -16,6 +16,29 @@ body {
   margin-bottom: 50px;
   border-bottom: 1px grey solid;
 }
+.eFundtitleStyle{
+  font-family: "Roboto Light";
+  font-style: italic;
+  font-size: 35px;
+  margin-bottom: 50px;
+  border-bottom: 1px grey solid;
+}
+#efundIntro{
+  font-family: "Roboto Light";
+  margin: 30px 50px;
+  margin-bottom: 50px;
+  color: grey;
+}
+#efundIntro:hover{
+  color: black;
+}
+.resultTitle{
+  font-family: "Roboto Light";
+  font-style: italic;
+  font-size: 45px;
+  border-bottom: 1px grey solid;
+  margin-bottom: 0px;
+}
 .roboto{
   font-family: "Roboto", sans-serif;
 }
@@ -27,11 +50,17 @@ body {
   font-family: "Roboto";
   font-weight: lighter;
   font-size: 16px;
+
 }
 .inputText{
   font-family: "Roboto Thin";
   font-size: 16px;
   font-style: italic;
+}
+.inputText:hover{
+  background-color: ghostwhite;
+  font-weight: bold;
+  font-style: revert;
 }
 .resultHeader{
   font-family: "Roboto Light";
@@ -64,7 +93,16 @@ body {
   width: 200px;
 }
 .buttonColor{
-  color: green;
+  font-family: "Roboto Light";
+  color: #ff7f45;
+  background-color: white;
+  border: #ff7f45 1px solid;
+  border-radius: 8px;
+}
+.buttonColor:hover{
+  background-color: #ff7f45;
+  color: black;
+  border: black 1.5px solid;
 }
 .disclaimer{
   font-size: 13px;
@@ -109,10 +147,35 @@ body {
 #homepageTwo{
   background-color: #F5DBCB;
 }
-img{
-  width: 1000px;
-  opacity: 0.5;
+#addButton{
+  font-family: "Roboto Light";
+  margin-left: 5px;
+  color: #00d5d6;
+  border-radius: 8px;
+  border: #00d5d6 2px solid;
+  background-color: white;
+  height: 50%;
 }
+/*#addButton:hover{*/
+/*  background-color: #00d5d6;*/
+/*  color: black;*/
+/*  border: black 1.5px solid;*/
+/*}*/
+#removeButton{
+  font-family: "Roboto Light";
+  margin-left: 5px;
+  color: #ff7f45;
+  border-radius: 8px;
+  border: #ff7f45 2px solid;
+  background-color: white;
+  height: 50%;
+}
+/*#removeButton:hover{*/
+/*  background-color: #ff7f45;*/
+/*  color: black;*/
+/*  border: black 1.5px solid;*/
+/*}*/
+
 #title{
   margin-top: 35px;
   margin-bottom: 5px;

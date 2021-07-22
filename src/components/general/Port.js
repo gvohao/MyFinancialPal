@@ -4,6 +4,7 @@ import {useHistory} from "react-router-dom";
 import {logDOM} from "@testing-library/react";
 import Quote from "./Quote";
 import {Row, Col, Form, Button} from "react-bootstrap";
+import RetirePortfolio from "./RetirePortfolio";
 
 function Port({user}) {
     const [retirePlan, setRetirePlan] = useState([])
@@ -13,9 +14,9 @@ function Port({user}) {
 
     console.log(user)
     useEffect(() =>{
-        if(user.retirementPlan === null){
-            history.push('/')
-        }
+        // if(!user.retirementPlan){
+        //     history.push('/')
+        // }
         console.log("end")
         console.log(user)
         if(user._id){
@@ -56,7 +57,7 @@ function Port({user}) {
     function changeInvestReturn(e){
         setNewInvestReturn(e.target.value)
     }
-    let annualInflation = (retirePlan.annualInflation*100) //annual inflation in %
+    let annualInflation = (retirePlan.annualInflation) //annual inflation in %
     console.log(annualInflation)
     console.log(retirePlan.investReturn)
     let discountRate = (retirePlan.investReturn - annualInflation) // discount rate in %
@@ -118,6 +119,7 @@ function Port({user}) {
     return (
 
         <Row>
+            {/*<RetirePortfolio/>*/}
             <h3 className="text-primary col-lg-12 ">According to your plans...</h3>
             <Col className="card col-6 " >
                 <div className="card-body champagne">
@@ -132,18 +134,18 @@ function Port({user}) {
                     </Row>
                     <Row>
                         <p className="card-text col-sm-7 text-end">Retirement age:</p>
-                        <p className="card-text col">Retirement age: {retirePlan.retireAge}</p>
+                        <p className="card-text col">{retirePlan.retireAge} years old</p>
                     </Row>
                     <Row>
                         <p className="card-text col-sm-7 text-end">Inflation adjusted funds:</p>
-                        <p className="card-text col">${infAdjRetireFunds}</p>
+                        <p className="card-text col">${retirePlan.infAdjRetireFunds}</p>
                     </Row>
                     <Row>
                         <p className="card-text col-sm-7 text-end">Inflation adjusted savings (annual):</p>
-                        <p className="card-text col-5">${infAdjAnnualSavings}</p>
+                        <p className="card-text col-5">${retirePlan.infAdjAnnualSavings}</p>
                     </Row>
                     <p className="card-text mt-3">Assumptions: {retirePlan.investReturn}% investment returns @ {annualInflation}% p.a.
-                                                real returns of {discountRate}%</p>
+                                                real returns of {discountRate}%.</p>
                     <div className="row">
                     <Button className="btn btn-success w-50 mt-2" onClick={showChangeGoal}>Edit</Button>
                     <Button className="btn btn-danger w-50 mt-2" onClick={deletePlan}>Delete</Button>

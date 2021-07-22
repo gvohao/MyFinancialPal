@@ -38,6 +38,7 @@ function Navigation({id, setAuth, user, setUser}){
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" className="">
                     <NavDropdown className="=col-md-9 " title="Calculators" id="responsive-nav-dropdown">
+                        <NavDropdown.Item href="/efund">Emergency Fund Planning</NavDropdown.Item>
                         <NavDropdown.Item href="/retire">Retirement Planning</NavDropdown.Item>
                         <NavDropdown.Item href="/">Education Planning</NavDropdown.Item>
                         <NavDropdown.Item href="/">Legacy Planning</NavDropdown.Item>

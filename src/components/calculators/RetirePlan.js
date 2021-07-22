@@ -3,8 +3,10 @@ import axios from "axios";
 import {Col, Row, Button} from "react-bootstrap";
 import * as singstat from "./singstatjson.json"
 import {isNumber} from "chart.js/helpers";
+import {useHistory} from "react-router-dom";
 
 function RetirePlan({user}) {
+    let history = useHistory()
 
     const initialState = { startFund: 0, retireExpense: 0, retireAge: 0, startAge: 0, lifeExp: 0, expReturns: 0.05}
     const [retireForm, setRetireForm] = useState(initialState)
@@ -21,7 +23,6 @@ function RetirePlan({user}) {
     const [annualInflation, setAnnualInflation] = useState(0)
     const [realReturns, setRealReturns] = useState(0)
     const [show, setShow] = useState(false)
-
 
     let data = singstat.default.Level1
     let infData = []
@@ -91,8 +92,10 @@ function RetirePlan({user}) {
     console.log(infRetireSavings)
     console.log(infRetireFund)
     async function savePlan(e) {
+        console.log("hit")
         e.preventDefault()
         try {
+            console.log("nope")
             await axios.post("/api/retire/plan", {
                 currentFund: retireForm.startFund,
                 retireExpense: retireForm.retireExpense,
@@ -110,8 +113,11 @@ function RetirePlan({user}) {
                 annualInflation: annualInflation,
                 cumulativeInflation: cumInflation
             })
+            console.log("plan saved")
             alert("Plan Saved!")
+            history.push("/")
         }catch (e){
+            alert("Retirement Plan already exists, please access in profile page.")
             console.log(e)
     }
     }
@@ -122,17 +128,17 @@ function RetirePlan({user}) {
             <Col className="">
                 <Row >
                     <Col className="inputDesc col-5 col-md-5 text-end mt-1">Current Retirement Fund:</Col>
-                        <input className="inputText col-6 col-md-6 mb-3 "  name="startFund" type="number" placeholder="Enter funds allocated for retirement" onChange={handleChange} />
+                        <input className="inputText col-6 col-md-6 mb-3 "  name="startFund" type="number" placeholder="Enter funds allocated for retirement" min="0" onChange={handleChange} />
                     <Col className="inputDesc col-5 col-md-5 text-end mt-1">Retirement Expense:</Col>
-                        <input className="inputText col-6 col-md-6 mb-3" name="retireExpense" type="number" placeholder="Enter desired annual retirement expense" onChange={handleChange} />
+                        <input className="inputText col-6 col-md-6 mb-3" name="retireExpense" type="number" placeholder="Enter desired annual retirement expense" min="0" onChange={handleChange} />
                     <Col className="inputDesc col-5 col-md-5 text-end mt-1">Current Age:</Col>
-                        <input className="inputText col-6 col-md-6 mb-3" name="startAge" type="number" placeholder="Enter current age" onChange={handleChange} />
+                        <input className="inputText col-6 col-md-6 mb-3" name="startAge" type="number" placeholder="Enter current age" min="0" onChange={handleChange} />
                     <Col className="inputDesc col-5 col-md-5 text-end mt-1">Retirement Age:</Col>
-                        <input className="inputText col-6 col-md-6 mb-3" name="retireAge" type="number" placeholder="Enter targeted retirement age" onChange={handleChange}/>
+                        <input className="inputText col-6 col-md-6 mb-3" name="retireAge" type="number" placeholder="Enter targeted retirement age" min="0" onChange={handleChange}/>
                     <Col className="inputDesc col-5 col-md-5 text-end mt-1">Life Expectancy:</Col>
-                        <input className="inputText col-6 col-md-6 mb-3" name="lifeExp" type="number" placeholder="Reference family history for accuracy" onChange={handleChange} />
+                        <input className="inputText col-6 col-md-6 mb-3" name="lifeExp" type="number" placeholder="Reference family history for accuracy" min="0" onChange={handleChange} />
                     <Col className="inputDesc col-5 col-md-5 text-end mt-1 ">Expected returns (%):</Col>
-                        <input className="inputText col-6 col-md-6 mb-3"  name="expReturns" type="number" placeholder="0.05% if left blank (assumed at base i/r)" onChange={handleChange} />
+                        <input className="inputText col-6 col-md-6 mb-3"  name="expReturns" type="number" placeholder="0.05% if left blank (assumed at base i/r)" min="0" onChange={handleChange} />
                     <Col className="col-5 col-md-5 "></Col>
                         {/*{!disabled ?*/}
                             <Button className="col-6 col-md-6 buttonColor" onClick={getResults} >Get Results</Button>
@@ -186,7 +192,7 @@ function RetirePlan({user}) {
                         was <b>{cumInflation.toFixed(2)}%</b> with <b>{annualInflation.toFixed(2)}%</b> annual inflation.</p>
                         <p className="my-1">Projection above was made at annual growth rate of <b>{(realReturns*100).toFixed(2)}%</b> by deducting past annual inflation rate from expected returns of <b>{retireForm.expReturns}%</b> .</p>
                     <p className="disclaimer mb-2">(Past inflation are for projection purpose only and may not accurately indicate future
-                        inflationary numbers.)</p>
+                        inflationary numbers. This is simply an attempt to provide increased accuracy for long term financial planning.)</p>
                     </div>
                 </Row>
                 :
