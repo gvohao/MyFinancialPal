@@ -4,11 +4,8 @@ import {Line} from "react-chartjs-2";
 import * as moneysupply from "./M3supply.json";
 
 function MoneySupply(props) {
-
     let moneySupply = moneysupply.default
-    console.log(moneySupply)
     let moneyData = moneysupply.default.Level2.slice(200)
-    console.log(moneyData)
     let moneyArr = []
     let moneyDateArr = []
     for(let i = 0; i < moneyData.length; i++) {
@@ -20,9 +17,6 @@ function MoneySupply(props) {
         //     console.log("got the moneth")
         // }
     }
-    console.log(moneyArr)
-    console.log(moneyDateArr)
-    // console.log(moneyData)
 
     const state = {
         labels: moneyArr,

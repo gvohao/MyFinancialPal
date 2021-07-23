@@ -50,7 +50,6 @@ function Efund({user}) {
             if(inputList[i]){
                 ccBill.push(Number(inputList[i].ccBill))
             }
-            console.log(ccBill)
             setCreditBill(ccBill.reduce((a, b) => a + b))
         }
         setLiqFund(Number(efundForm.curEfund) + Number(efundForm.liqAsset))
@@ -60,11 +59,6 @@ function Efund({user}) {
         setBudget((liqFund - shortTermDebt)/ efundForm.stopIncome + burnRate)
     }
 
-    console.log(budget)
-    console.log(liqFund)
-    console.log(shortTermDebt)
-    console.log(Number(efundForm.stopIncome))
-    console.log(burnRate)
     return (
         <Row className="vh-100">
             <Col className="col-12 mt-3 text-center eFundtitleStyle "> Emergency Fund Calculator </Col>

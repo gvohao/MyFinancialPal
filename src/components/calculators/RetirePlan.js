@@ -2,7 +2,6 @@ import React, {useEffect, useState, useRef} from 'react';
 import axios from "axios";
 import {Col, Row, Button} from "react-bootstrap";
 import * as singstat from "./singstatjson.json"
-import {isNumber} from "chart.js/helpers";
 import {useHistory} from "react-router-dom";
 
 function RetirePlan({user}) {
