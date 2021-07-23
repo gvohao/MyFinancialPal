@@ -1,24 +1,13 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import {Col, Row, Button} from "react-bootstrap";
 import {logDOM} from "@testing-library/react";
+import {isNumber} from "chart.js/helpers";
 
 function Efund({user}) {
     const [show, setShow] = useState(false)
     const[inputList, setInputList] = useState([{ "ccBill": 0 }])
     const initialState = { curEfund: 0, liqAsset:0, curDebt:0, fixExpense:0, mthIncome:0, stopIncome:0 }
     const[efundForm, setEfundForm] = useState(initialState)
-    console.log(inputList)
-    let ccBill=[]
-    for(let i =0; i<inputList.length; i++){
-        if(inputList[i]){
-            ccBill.push(Number(inputList[i].ccBill))
-        }
-        console.log(ccBill)
-        let creditBill = ccBill.reduce((a, b) => a + b)
-        // console.log(ccBill.reduce((a, b) => a + b))
-        console.log(creditBill)
-    }
-    console.log(efundForm)
 
     function handleChange(e){
         setEfundForm({...efundForm, [e.target.name] : e.target.value})
@@ -43,6 +32,39 @@ function Efund({user}) {
     function showResult(){
         setShow(true)
     }
+
+    useEffect(()=>{
+        calcEfund()
+    },[efundForm])
+
+    let ccBill = []
+    const [creditBill, setCreditBill] = useState(0)
+    const [liqFund, setLiqFund] = useState(0)
+    const [shortTermDebt, setShortTermDebt] = useState(0)
+    const [burnRate, setBurnRate] = useState(0) //monthly cashflow
+    const [cashBudget, setCashBudget] = useState(0)
+    const [budget, setBudget] = useState(0)
+
+    function calcEfund(){
+        for(let i =0; i<inputList.length; i++){
+            if(inputList[i]){
+                ccBill.push(Number(inputList[i].ccBill))
+            }
+            console.log(ccBill)
+            setCreditBill(ccBill.reduce((a, b) => a + b))
+        }
+        setLiqFund(Number(efundForm.curEfund) + Number(efundForm.liqAsset))
+        setShortTermDebt(Number(efundForm.curDebt) + creditBill)
+        setBurnRate(Number(efundForm.mthIncome) - Number(efundForm.fixExpense))
+        setCashBudget((Number(efundForm.curEfund) - Number(shortTermDebt))/ efundForm.stopIncome + burnRate)
+        setBudget((liqFund - shortTermDebt)/ efundForm.stopIncome + burnRate)
+    }
+
+    console.log(budget)
+    console.log(liqFund)
+    console.log(shortTermDebt)
+    console.log(Number(efundForm.stopIncome))
+    console.log(burnRate)
     return (
         <Row className="vh-100">
             <Col className="col-12 mt-3 text-center eFundtitleStyle "> Emergency Fund Calculator </Col>
@@ -69,44 +91,27 @@ function Efund({user}) {
                     })}
                     <Col className="inputDesc col-md-4 text-end mt-1">Fixed Expenses:</Col>
                         <input className="inputText col-6 col-md-6 mb-3" name="fixExpense" type="number" placeholder="Eg. Mortgage installments, insurance premiums, utility bills..." min="0" onChange={handleChange} />
-                    <Col className="inputDesc col-md-4 text-end mt-1">Monthly income:</Col>
-                        <input className="inputText col-6 col-md-6 mb-3" name="mthIncome" type="number" placeholder="Monthly income during current period" min="0" onChange={handleChange} />
+                    <Col className="inputDesc col-md-4 text-end mt-1">Supplementary income:</Col>
+                        <input className="inputText col-6 col-md-6 mb-3" name="mthIncome" type="number" placeholder="Supplementary income during current period" min="0" onChange={handleChange} />
                     <Col className="inputDesc col-md-4 text-end mt-1">Expected stoppage of income:</Col>
                         <input className="inputText col-6 col-md-6 mb-3" name="stopIncome" type="number" placeholder="Enter number of months" min="0" onChange={handleChange} />
                     <Col md={4}></Col>
-                    <Button className="col-6 col-md-6 buttonColor " onClick={showResult}>Get Results</Button>
+                    <Button className="col-6 col-md-6 buttonColor " onClick={showResult} onClickCapture={calcEfund}>Get Results</Button>
                 </Row>
             </Col>
             {show ?
-                <Col className="col-md-4">
-                    <Row>
-                        <h3>You will have a budget of $xxx over the expected {efundForm.stopIncome} months of expected stoppage of income.</h3>
-                        <Col className="col-12 col-md-12 text-center">
-                            <Col className="resultHeader">Vanilla Savings</Col>
-                            <Row className="d-flex justify-content-center ">
-                                <Col className="resultSubheader col-6 col-md-6 text-center my-2 ">Retirement Fund Required:
-                                    <input className="result col-5 w-75 col-md-5 text-center mx-3 " name="" type="number" placeholder="" disabled={true}/>
-                                </Col>
-                                <Col className="resultSubheader col-6 col-md-6 text-center my-2 ">Annual Savings Required:
-                                    <input className="result col-5 w-75 col-md-5 text-center mx-3" name="" type="number" placeholder="" disabled={true}/>
-                                </Col>
-                            </Row>
-                            <Col className="resultHeader mt-5">Inflation Adjusted Savings</Col>
-                            <Row className="d-flex justify-content-center ">
-                                <Col className="resultSubheader col-6 col-md-6 text-center my-1 ">Retirement Fund Required:
-                                    <input className="result col-5 w-75 col-md-5 text-center mx-3 " name="" type="number" placeholder="" disabled={true}/>
-                                </Col>
-                                <Col className="resultSubheader col-6 col-md-6 text-center my-1">Annual Savings Required:
-                                    <input className="result col-5 w-75 col-md-5 text-center mx-3" name="" type="number" placeholder="" disabled={true}/>
-                                </Col>
-                            </Row>
+                <Col className="col-md-4 d-flex align-items-center">
+                    <Row className="d-flex justify-content-center">
+                        <Col className="resultHeader text-center mb-4 col-md-12">Your Emergency Fund</Col>
+                        <Col className="efundResultHead mb-3 col-md-12">Without liquidating any assets, </Col>
+                        <Col className="resultSubheader text-center col-md-12">you have a budget of <b>${cashBudget.toFixed(2)}/month</b> over the period of <b>{efundForm.stopIncome}</b> months.</Col>
+                        <Col className="efundResultHead mb-3 col-md-12  mt-5">With full liquidity, </Col>
+                        <Col className="resultSubheader text-center col-md-12">you have access to a budget of <b>${budget.toFixed(2)}/month</b> over the period of {efundForm.stopIncome} months.</Col>
                             {user ?
-                                <Button className="mt-md-5 w-50 mb-5 buttonColor"  >Save Retirement
-                                    Plan</Button>
+                                <Button className="mt-3 w-50 mb-5 buttonColor mt-3"  >Save Emergency Fund</Button>
                                 :
                                 <></>
                             }
-                        </Col>
                     </Row>
                 </Col>
                 :

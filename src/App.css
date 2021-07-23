@@ -77,6 +77,12 @@ body {
   background-color: white;
   border: darkgrey 1px solid;
 }
+.efundResultHead{
+  font-family: "Roboto Thin";
+  font-size: 20px;
+  font-style: italic;
+  margin-bottom: 0;
+}
 .headerSummary{
   font-size: 24px;
   font-style: italic;
