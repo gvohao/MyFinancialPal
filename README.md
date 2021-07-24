@@ -1,6 +1,6 @@
 # MyFinancialPal
 
-A project influenced by my previous role as a wealth planning professional with DBS Bank, I wish to automate my pitch through the creation of this app.
+A project influenced by my previous role as a wealth planning professional with DBS Bank, I intend to automate my pitch through the creation of this app.
 
 In the landing page, users are greeted by quotes by respectable figures in the financial world in attempt to spark inspiration or motivation of users to take financial decisions into their own hands.
 
