@@ -12,7 +12,8 @@ import Portfolio from "./components/general/Portfolio";
 import RetirePlan from "./components/calculators/RetirePlan";
 import RetirePortfolio from "./components/general/RetirePortfolio"
 import AllPortfolio from "./components/general/AllPortfolio";
-import Efund from "./components/calculators/Efund"
+import EfundBudget from "./components/calculators/emergencyFund/EfundBudget"
+import Efund from "./components/calculators/emergencyFund/Efund";
 
 function App() {
     const [auth, setAuth] = useState({})
@@ -79,10 +80,6 @@ function App() {
                         {/*<RetirePortfolio user={user}/>*/}
                         <AllPortfolio user={user}/>
                     </Route>
-                    {/*<Route path='/portfolioo' exact>*/}
-                    {/*    /!*<Portfolio user={user} auth={auth} />*!/*/}
-                    {/*    <Port user={user}/>*/}
-                    {/*</Route>*/}
 
                     <Route path='/auth' exact>
                         <AuthForm auth={auth} setAuth={setAuth}/>

@@ -20,14 +20,14 @@ body {
   font-family: "Roboto Light";
   font-style: italic;
   font-size: 35px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   border-bottom: 1px grey solid;
 }
 #efundIntro{
   font-family: "Roboto Light";
-  margin: 30px 50px;
+  font-size: 18px;
   margin-bottom: 50px;
-  color: grey;
+  color: black;
 }
 #efundIntro:hover{
   color: black;
@@ -88,6 +88,15 @@ body {
   font-style: italic;
   margin-left: 42px;
   margin-bottom: 0px;
+}
+.efundSubheader{
+  font-family: "Roboto Light";
+  font-size: 28px;
+}
+.efundComment{
+  font-family: "Roboto Light";
+  font-size: 18px;
+  font-style: italic;
 }
 .textArea{
   font-size: 18px;
@@ -175,6 +184,21 @@ body {
   border: #ff7f45 2px solid;
   background-color: white;
   height: 50%;
+}
+.calcButton{
+  font-family: "Roboto";
+  font-size: 14px;
+  margin-left: 5px;
+  color: #00be67;
+  border-radius: 8px;
+  border: #00be67 3px solid;
+  background-color: white;
+  height: 40%;
+}
+.calcButton:hover{
+  color: #00e68c;
+  border: #00e68c 3px solid;
+  font-size: 16px;
 }
 /*#removeButton:hover{*/
 /*  background-color: #ff7f45;*/

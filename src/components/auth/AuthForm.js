@@ -3,8 +3,6 @@ import {Form, Row, Col, Button} from "react-bootstrap";
 import axios from "axios";
 import { useHistory } from 'react-router-dom'
 
-
-
 function Register({auth, setAuth, user}) {
     //toggle between registration and login
     const [isSignup, setIsSignup] = useState(true);
@@ -38,8 +36,11 @@ function Register({auth, setAuth, user}) {
 
     const loginSubmit = async(e) => {
         e.preventDefault(); //prevent refresh on form submit
+
         try {
+            console.log("here")
             let res = await axios.post("/api/auth/login", formData)
+            console.log("abc")
             console.log(res.data.token)
             localStorage.setItem("token", res.data.token)
             setAuth(true)
